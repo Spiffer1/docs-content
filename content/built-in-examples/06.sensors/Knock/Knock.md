@@ -50,6 +50,8 @@ In the code below, the incoming piezo data is compared to a threshold value set 
 
 <iframe src='https://create.arduino.cc/example/builtin/06.Sensors%5CKnock/Knock/preview?embed&snippet' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
 
+Note: Line #53, "delay(100)", in the code snippet above should be moved up a line so that it is inside the "if" block and immediately after the "Serial.println("Knock")" command. Otherwise, the code only checks if there is a knock once each 100 milliseconds, and this causes many knocks to go undetected. As the comment on line #53 points out, the only purpose of the delay() is to avoid overwhelming the serial port buffer, so the delay() only needs to occur when something is printed to the Serial port.
+
 ### Learn more
 
 You can find more basic tutorials in the [built-in examples](/built-in-examples) section.
